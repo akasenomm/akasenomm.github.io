@@ -1,0 +1,45 @@
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+footer {
+    margin-top: auto;
+    background-color: blue;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    background-color:blue;
+    height: 2rem;
+    padding: 2rem;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content {
+    background-color: gainsboro;
+    margin: 1rem;
+    border-radius: 1rem;
+    padding: 2rem;
+    height: 10rem;
+    flex-grow: 1;
+}
+
+.content p {
+    color: black;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+p {
+    color: whitesmoke;
+    font-size: 2rem;
+}
