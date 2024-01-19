@@ -18,4 +18,48 @@ function reveal() {
     }
 }
 
+window.onscroll = function() {
+    scrollFunction();
+    arrowScrollFunction();
+};
+
+function scrollFunction() {
+    var navbar = document.querySelector(".nav");
+    var triggerHeight = window.innerHeight * 0.72; // 72% of the viewport height
+
+    if (window.pageYOffset > triggerHeight) {
+        navbar.classList.add("fixed-nav");
+        navbar.style.top = "0"; // Ensure navbar stays at the top
+
+        // Reserve space for navbar
+        document.body.style.paddingTop = navbar.offsetHeight + "px";
+    } else {
+        navbar.classList.remove("fixed-nav");
+        navbar.style.top = ""; // Reset top property
+
+        // Remove reserved space
+        document.body.style.paddingTop = 0;
+    }
+}
+
+
+function arrowScrollFunction() {
+    var arrow = document.getElementById("arrow");
+    var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    var windowHeight = window.innerHeight;
+
+    // Calculate opacity (0 when scrollPosition is at 50% of windowHeight, 1 when at top)
+    var opacity = 1 - Math.min(scrollPosition / (windowHeight * 0.5), 1);
+
+    // Apply opacity
+    arrow.style.opacity = opacity;
+}
+
+
+
+
+
+
+
+
 
