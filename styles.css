@@ -22,21 +22,28 @@ header {
     text-align: center;
     align-items: center;
     justify-content: space-between;
+    /*
+    border-bottom: 50px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, #6c26e4, #ed4db3);
+    */
 }
 
 .content {
     display: flex;
-    background-color: gainsboro;
+    background-color: black;
     border-radius: 0.2rem;
     padding: 10rem;
     height: 10rem;
     flex-grow: 1;
     margin: 2rem 10rem;
+    margin-top: 5rem;
+    border: 10px white solid;
 
 }
 
 .content p {
-    color: black;
+    color: whitesmoke;
 }
 
 footer p {
@@ -64,10 +71,12 @@ p {
 }
 
 
+
 .content p {
     margin: 0;
 }
 
+/*
 header img {
     height: 15rem;
     width: auto;
@@ -79,6 +88,7 @@ header img {
     border-top-left-radius:2rem;
     border-bottom-right-radius: 2rem;
 }
+*/
 
 #welcome-text {
     color: white;
@@ -86,4 +96,34 @@ header img {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 5rem
 }
+/*
+header img {
+    height: 15rem;
+    width: auto;
+    opacity: 0.9;
+    border-bottom: 0.5rem solid #302a36;
+    border-top: 0.5rem solid #e9b3fd;
+    border-left: 0.5rem solid rgb(37, 19, 125);;
+    border-right: 0.5rem solid rgb(37, 19, 125);
+    border-radius: 3rem;
+}
+*/
 
+.border-gradient {
+    border: 10px solid;
+    border-image-slice: 1;
+    height: 15rem;
+    width: auto;
+    opacity: 0.9;
+  }
+  .border-gradient-purple {
+    border-image-source: linear-gradient(to left, #6c26e4, #ed4db3);
+  }
+
+  svg {
+    background-color: black;
+    width: 100%;
+    
+    
+
+  }
