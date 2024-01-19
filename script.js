@@ -18,16 +18,14 @@ function reveal() {
     }
 }
 
-window.onscroll = function() {
-    scrollFunction();
-    arrowScrollFunction();
-};
-
 function scrollFunction() {
     var navbar = document.querySelector(".nav");
     var triggerHeight = window.innerHeight * 0.72; // 72% of the viewport height
 
-    if (window.pageYOffset > triggerHeight) {
+    // Use a combination of properties for maximum compatibility
+    var scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+    if (scrollPosition > triggerHeight) {
         navbar.classList.add("fixed-nav");
         navbar.style.top = "0"; // Ensure navbar stays at the top
 
@@ -42,10 +40,16 @@ function scrollFunction() {
     }
 }
 
+window.onscroll = function() {
+    scrollFunction();
+    arrowScrollFunction();
+};
 
 function arrowScrollFunction() {
     var arrow = document.getElementById("arrow");
-    var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Use a combination of properties for maximum compatibility
+    var scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     var windowHeight = window.innerHeight;
 
     // Calculate opacity (0 when scrollPosition is at 50% of windowHeight, 1 when at top)
@@ -54,6 +58,7 @@ function arrowScrollFunction() {
     // Apply opacity
     arrow.style.opacity = opacity;
 }
+
 
 
 
