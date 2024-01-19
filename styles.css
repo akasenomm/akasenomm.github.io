@@ -19,7 +19,7 @@ footer {
 header {
     display: flex;
     background-color:white;
-    height: 80%;
+    min-height: 50vh;
     padding: 5.5% 10%;
     text-align: center;
     align-items: center;
@@ -225,71 +225,43 @@ header img {
         opacity: 1;
     }
 }
-
 @media screen and (max-width: 768px) {
     .content {
-        padding: 1rem; /* Adjust padding */
-        margin: 1rem; /* Adjust margin */
+        flex-direction: column;
+        padding: 1rem;
+        margin: 1rem;
     }
-}
 
-@media screen and (max-width: 768px) {
+    #content-pic, #content-text {
+        width: 100%;
+        max-width: 100%;
+    }
+
     header {
-        flex-direction: column; /* Stack the items vertically */
-        height: auto; /* Adjust height */
-        padding: 2rem; /* Adjust padding */
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+        min-height: 55vh;
+        justify-content: space-around;
     }
-}
 
-@media screen and (min-width: 600px) {
+    header, footer, .nav {
+        padding: 1rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    #myName p {
+        margin: .1rem;
+    }
+
     .content {
         flex-direction: row;
     }
 }
 
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: black;
-    border-radius: 0.2rem;
-    padding: 2rem;
-    height: auto;
-    flex-grow: 1;
-    margin: 2rem 10rem;
-    margin-top: 5rem;
-    border: 10px white solid;
-    justify-content: space-around;
-}
 
-#content-pic {
-    margin: 0;
-    height: auto;
-    max-height: 100%;
-    max-width: 100%;
-    border: 1px gray dotted;
-    border-radius: 10%;
-}
 
-#content-text {
-    margin: 1rem 2rem;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-@media only screen and (max-width: 768px) {
-    .content {
-        flex-direction: column; /* Stack elements vertically on smaller screens */
-        margin: 2rem 1rem; /* Adjust margins for smaller screens */
-    }
-
-    #content-pic {
-        width: 100%; /* Make the image take full width on smaller screens */
-        max-width: none; /* Remove max-width restriction */
-    }
-
-    #content-text {
-        margin: 1rem 1rem; /* Adjust margins for smaller screens */
-    }
-}
 
