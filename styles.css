@@ -18,8 +18,7 @@ header {
     display: flex;
     background-color:white;
     height: 23rem;
-    padding: 1rem;
-    padding-left: 2rem;
+    padding: 1rem 10rem;
     text-align: center;
     align-items: center;
     justify-content: space-between;
@@ -29,7 +28,7 @@ header {
     display: flex;
     background-color: gainsboro;
     border-radius: 0.2rem;
-    padding: 2rem;
+    padding: 10rem;
     height: 10rem;
     flex-grow: 1;
     margin: 2rem 10rem;
@@ -64,23 +63,21 @@ p {
     color: rgb(99, 96, 96);
 }
 
-.picture img {
-    height: 100%;
-    width: auto;
-    border: 4px gray solid;
-
-}
 
 .content p {
     margin: 0;
 }
 
 header img {
-    width: 15rem;
+    height: 15rem;
+    width: auto;
     opacity: 0.85;
-    background-color: rgb(236, 233, 36);
-    border: 2px black solid;
-    border-radius: 15rem;
+    border-bottom: 0.5rem solid rgb(46, 46, 240);
+    border-top: 0.5rem solid rgb(136, 159, 241);
+    border-left: 0.5rem solid rgb(65, 104, 188);
+    border-right: 0.5rem solid rgb(37, 19, 125);
+    border-top-left-radius:2rem;
+    border-bottom-right-radius: 2rem;
 }
 
 #welcome-text {
