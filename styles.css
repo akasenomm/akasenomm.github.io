@@ -13,6 +13,7 @@ body {
 }
 
 footer {
+    padding: 2rem;
     margin-top: auto;
     background-color: white;
     text-align: center;
@@ -85,34 +86,6 @@ p {
     animation-range: entry 50% cover 50%;
 }
 
-/*
-header img {
-    height: 15rem;
-    width: auto;
-    opacity: 0.85;
-    border-bottom: 0.5rem solid rgb(46, 46, 240);
-    border-top: 0.5rem solid rgb(136, 159, 241);
-    border-left: 0.5rem solid rgb(65, 104, 188);
-    border-right: 0.5rem solid rgb(37, 19, 125);
-    border-top-left-radius:2rem;
-    border-bottom-right-radius: 2rem;
-}
-*/
-
-
-/*
-header img {
-    height: 15rem;
-    width: auto;
-    opacity: 0.9;
-    border-bottom: 0.5rem solid #302a36;
-    border-top: 0.5rem solid #e9b3fd;
-    border-left: 0.5rem solid rgb(37, 19, 125);;
-    border-right: 0.5rem solid rgb(37, 19, 125);
-    border-radius: 3rem;
-}
-*/
-
 .border-gradient {
     border: 10px solid;
     border-image-slice: 1;
@@ -150,6 +123,7 @@ header img {
 }
 
 #arrow {
+    padding: 5vh;
     color: white;
     align-self: center;
 }
@@ -198,7 +172,6 @@ header img {
     border: 2px black solid;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 5vh;
 }
 
 .nav p {
@@ -206,8 +179,11 @@ header img {
 }
 
 .fixed-nav {
-    position: fixed;
+    display: flex;
     width: 100%;
+    display: flex;
+    height: 11.5vh;
+    position: fixed;
     z-index: 1; /* This ensures the nav stays on top of other content */
 }
 
@@ -218,6 +194,10 @@ header img {
 html, body {
     overflow-x: hidden;
     max-width: 100%;
+}
+
+body {
+    position: relative;
 }
 
 .content-2, .content-3{
@@ -265,9 +245,21 @@ html, body {
         padding: 1rem;
         min-height: 55vh;
         justify-content: space-around;
+        
     }
 
-    header, footer, .nav {
+    #arrow {
+        padding: 5vh;
+    }
+
+    .fixed-nav {
+        margin-bottom: 5vh;
+        width: 100%;
+        box-sizing: border-box;
+    
+    }
+
+    header, footer {
         padding: 1rem;
     }
 
