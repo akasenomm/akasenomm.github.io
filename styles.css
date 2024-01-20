@@ -58,25 +58,12 @@ footer p {
 }
 
 p {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    font-family: 'Montserrat', sans-serif;
     color: black;
     font-size: 2rem;
 }
 
-#myName {
-    display: flex;
-    justify-content: space-around;
-    justify-content: space-between;
-}
-
-#myName  p {
-    margin: .2rem;
-}
-
-#firstName {
-    color: rgb(99, 96, 96);
-    color: black;
-}
 
 
 
@@ -104,7 +91,7 @@ p {
 
 
 
-  h1 {
+h1 {
     color: white;
 }
 
@@ -144,16 +131,18 @@ p {
 }
 
 
+
+#intro {
+    color: black;
+    font-size: 1.618rem;
+    text-align: left;
+}
 #myName {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#intro {
-    color: black;
-    font-size: 1rem;
-    text-align: left;
+    justify-content: space-around;
+    justify-content: space-between;
 }
 
 
@@ -162,7 +151,12 @@ p {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 10px; /* Adjust the top margin as needed */
+    margin: .2rem;
+    margin-top: 6vh; /* Adjust the top margin as needed */
+}
+
+#firstname, #lastname {
+    font-size: 2.618rem;
 }
 
 .nav {
@@ -176,6 +170,7 @@ p {
 
 .nav p {
     color: black;
+    font-size: 1.68rem;
 }
 
 .fixed-nav {
