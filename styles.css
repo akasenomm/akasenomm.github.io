@@ -180,6 +180,7 @@ h1 {
     border: 2px black solid;
     justify-content: space-around;
     align-items: center;
+    transition: all 0.2s;
 }
 
 .nav p, .fixed-nav p {

@@ -80,7 +80,7 @@ function scrollFunction() {
     var scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
     // Handle fixed navbar
-    if (scrollPosition > triggerHeight) {
+    if (scrollPosition> triggerHeight) {
         navbar.classList.add("fixed-nav");
         navbar.style.top = "0"; // Ensure navbar stays at the top
 
