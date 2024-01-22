@@ -43,8 +43,8 @@ function arrowScrollFunction() {
     var scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     var windowHeight = window.innerHeight;
 
-    // Calculate opacity (0 when scrollPosition is at 50% of windowHeight, 1 when at top)
-    var opacity = 1 - Math.min(scrollPosition / (windowHeight * 0.5), 1);
+    // Calculate opacity (0 when scrollPosition is at 60% of windowHeight, 1 when at top)
+    var opacity = 1 - Math.min(scrollPosition / (windowHeight * 0.6), 1);
 
     // Apply opacity
     arrow.style.opacity = opacity;
@@ -67,8 +67,10 @@ window.addEventListener('load', function () {
     document.body.style.opacity = 1;
 });
 
-window.addEventListener('scroll', debounce(handleScroll, 50)); // Debounce scroll events
+window.addEventListener('scroll', debounce(handleScroll, 25)); // Debounce scroll events. Before: 50
 
+
+// For the fixed nav bar
 function scrollFunction() {
     var navbar = document.querySelector(".nav");
     var header = document.querySelector("header");
@@ -95,9 +97,32 @@ function scrollFunction() {
     }
 }
 
+// First, set the --vh custom property to the window height in pixels
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+// Then, listen for the resize event and update --vh
+window.addEventListener('resize', () => {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
 
 
-// Additional code for revealing elements and arrow opacity...
+
+// Anchor tag click scrolls to right section 
+window.addEventListener('DOMContentLoaded', (event) => {
+    const navigation = document.querySelector(".nav");
+    const navigationHeight = navigation.offsetHeight;
+
+    document.documentElement.style.setProperty(
+      "--scroll-padding",
+      navigationHeight + "px"
+    );
+});
+
+
+  
+
 
 
 

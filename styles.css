@@ -1,383 +1,306 @@
-* {
-    padding: 0;
-    margin: 0;
+html, body {
+    height: 100vh;
+   /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
 }
-
-
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 11.5svh;
+    scroll-padding: var(--scroll-padding,11.5vh);
+}
+
+
+* {
+    padding : 0;
+    margin : 0;
+}
+html {
+    scroll-behavior : smooth;
+    scroll-padding-bottom : 11.5svh;
 }
 body {
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    background-color: black;
-    opacity: 0;
-    transition: opacity 0.75s ease-in;
+    min-height : 100svh;
+    display : flex;
+    flex-direction : column;
+    margin : 0;
+    background-color : black;
+    opacity : 0;
+    transition : opacity 0.75s ease-in;
 }
-
 footer {
-    padding: 2rem;
-    margin-top: auto;
-    background-color: white;
-    text-align: center;
-    flex-shrink: 0;
+    padding : 2rem;
+    margin-top : auto;
+    background-color : white;
+    text-align : center;
+    flex-shrink : 0;
 }
-
 header {
-    display: flex;
-    background-color:white;
-    min-height: 50svh;
-    padding: 5.5% 10%;
-    text-align: center;
-    align-items: center;
-    justify-content: space-between;
-    /*
-    border-bottom: 50px solid;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(to right, #6c26e4, #ed4db3);
-    */
-}
-
-.content {
-    display: flex;
-    background-color: black;
-    border-radius: 0.2rem;
-    padding: 2rem;
-    height: 100svh;
-    flex-grow: 1;
-    margin: 2rem 10rem;
-    margin-top: 5rem;
-    border: 5px white solid;
-    justify-content: space-around;
-
+    display : flex;
+    background-color : white;
+    min-height : 50svh;
+    padding : 5.5% 10%;
+    text-align : center;
+    align-items : center;
+    justify-content : space-between;
 }
 
 .content p {
-    color: whitesmoke;
+    color : whitesmoke;
 }
-
 footer p {
-    font-size: 1rem;
+    font-size : 1rem;
 }
-
 p, a {
-
-    font-family: 'Montserrat', sans-serif;
-    color: black;
-    font-size: 2rem;
-    text-decoration: none;
+    font-family : 'Montserrat', sans-serif;
+    color : black;
+    font-size : 1.314rem;
+    text-decoration : none;
 }
-
-
-
-
 .content p, .content {
-    animation: fade 1.75s linear both;
-    animation-timeline: view();
-    animation-range: entry 50% cover 50%;
+    animation : fade 1.75s linear both;
 }
-
 .border-gradient {
-    border: 10px solid;
-    border-image-slice: 1;
-    height: 15rem;
-    width: auto;
-    opacity: 0.9;
-  }
-  .border-gradient-purple {
-    border-image-source: linear-gradient(to left, #6c26e4, #ed4db3);
-  }
-
-  svg {
-    background-color: black;
-    width: 100%;
-  }
-
-
-
+    border : solid 10px;
+    border-image-slice : 1;
+    height : 15rem;
+    width : auto;
+    opacity : 0.9;
+}
+.border-gradient-purple {
+    border-image-source : linear-gradient(to left, #6c26e4, #ed4db3);
+}
+svg {
+    background-color : black;
+    width : 100%;
+}
 h1 {
-    color: white;
+    color : white;
 }
-
-
-
 .reveal {
-    position: relative;
-    transform: translateY(150px);
-    opacity: 0;
-    transition: all 2s ease;
+    position : relative;
+    transform : translateY(150px);
+    opacity : 0;
+    transition : all 2s ease;
 }
-
 .reveal.active {
-    transform: translateY(0px);
-    opacity: 1;
+    transform : translateY(0);
+    opacity : 1;
 }
-
 #arrow {
-    padding: 5svh;
-    color: white;
-    align-self: center;
+    padding : 5.5svh;
+    color : white;
+    align-self : center;
+    margin-bottom: 10vh;
+    font-size: 5vh;
 }
-
 #content-pic {
-    margin: 0;
-    height: 15rem;
-    max-height: 100%;
-    max-width: 100%;
-    border: 3px whitesmoke solid;
-    border-radius: 10%;
+    margin : 0;
+    height : 15rem;
+    max-height : 100%;
+    max-width : 100%;
+    border : whitesmoke solid 3px;
+    border-radius : 10%;
 }
-
 #content-text {
-    margin: 1rem 2rem;
-    max-width: 100%;
-    max-height: 100%;
+    margin : 1rem 2rem;
+    max-width : 100%;
+    max-height : 100%;
+    color: #ed4db3;
 }
-
-
-
 #intro {
-    color: black;
-    font-size: 1.618rem;
-    text-align: left;
+    color : black;
+    font-size : 1.618rem;
+    text-align : left;
 }
 #myName {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    justify-content: space-between;
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+    justify-content : space-around;
+    justify-content : space-between;
 }
-
-
 #full-name {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: .2rem;
-    margin-top: 6svh; /* Adjust the top margin as needed */
+    display : flex;
+    flex-direction : row;
+    align-items : center;
+    justify-content : center;
+    margin : 0.2rem;
+    margin-top : 6svh;
 }
-
 #firstname, #lastname {
-    font-size: 2.618rem;
-    padding: 0.2rem;
+    font-size : 2.618rem;
+    padding : 0.2rem;
 }
-
 .dot {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.618rem;
-    background: linear-gradient(to left, #6c26e4, #ed4db3);
-    -webkit-background-clip: text; /* For Safari/Chrome/iOS */
-    background-clip: text;
-    color: transparent; /* Make the text transparent so that the gradient shows through */
+    font-family : 'Montserrat', sans-serif;
+    font-size : 2.618rem;
+    background : linear-gradient(to left, #6c26e4, #ed4db3);
+    background-clip : text;
+    color : transparent;
 }
-
 .nav {
-    display: flex;
-    height: 11.5svh;
-    width: 100%;
-    width: 100svw;
-    box-sizing: border-box;
-
-    background-color: white;
-    border: 2px black solid;
-    justify-content: space-around;
-    align-items: center;
-    transition: all 0.2s;
+    display : flex;
+    height : 11.5svh;
+    width : 100%;
+    width : 100svw;
+    box-sizing : border-box;
+    background-color : white;
+    border : black solid 2px;
+    justify-content : space-around;
+    align-items : center;
+    transition : all 0.2s;
 }
-
 .nav p, .fixed-nav p {
-    color: black;
-    font-size: 1.68rem;
+    color : black;
+    font-size : 1.68rem;
 }
-
-
 .fixed-nav {
-    display: flex;
-
-    box-sizing: border-box;
-    display: flex;
-    height: 11.5svh;
-    position: fixed;
-    z-index: 1; /* This ensures the nav stays on top of other content */
-
-    display: flex;
-    height: 11.5svh;
-    background-color: white;
-    justify-content: space-around;
-    align-items: center;
+    display : flex;
+    box-sizing : border-box;
+    display : flex;
+    height : 11.5svh;
+    position : fixed;
+    z-index : 1;
+    display : flex;
+    height : 11.5svh;
+    background-color : white;
+    justify-content : space-around;
+    align-items : center;
 }
-
 #arrow {
-    transition: opacity 1s; /* Smooth transition */
+    transition : opacity 2.5s;
 }
 body {
-    max-width: 100%;
-    overflow: hidden;
+    position : relative;
 }
-html {
-    overflow: scroll;
-    max-width: 100%;
-}
-
-
-body {
-    position: relative;
-}
-
-.content-2, .content-3{
+.content,
+.content-2,
+.content-3 {
+    display: flex;
     margin-top: 10svh;
     background-color: white;
-    height: 87.5svh;
-    width: 100%;
     padding: 10svh;
+    box-sizing: border-box;
+    width: 100%;
+    height: 88.5vh;
+    min-height: 100vh;
 }
 
+
 .content-3 {
-    background-color: black;
-}
-.content-3 p {
+    background-color: green;
     color: white;
 }
 
-
-
+.content-3 p {
+    color : white;
+}
 .nav a {
-    text-decoration: none;
-    position: relative;
-    color: black; /* Fallback color */
+    text-decoration : none;
+    position : relative;
+    color : black;
 }
-
 .nav a:hover {
-    background: linear-gradient(to left, #6c26e4, #ed4db3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    /*background : linear-gradient(to left, #6c26e4, #ed4db3);*/
 }
-
-.nav a::before,
-.nav a::after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px; /* Adjust the thickness of the line here */
-    bottom: -5px; /* Adjust the position of the line here */
-    margin: auto;
-    background: linear-gradient(to left, #6c26e4, #ed4db3);
-    transition: all 0.5s;
+.nav a::before, .nav a::after {
+    content : "";
+    position : absolute;
+    width : 0;
+    height : 2px;
+    bottom : -5px;
+    margin : auto;
+    background : linear-gradient(to left, #6c26e4, #ed4db3);
+    transition : all 0.5s;
 }
-
 .nav a::before {
-    left: 50%;
+    left : 50%;
 }
-
 .nav a::after {
-    right: 50%;
+    right : 50%;
 }
-
-.nav a:hover::before,
-.nav a:hover::after {
-    width: 50%;
+.nav a:hover::before, .nav a:hover::after {
+    width : 50%;
 }
-
-
-
-
-
-
 @keyframes fade {
     from {
-        opacity: 0;
-    }
+        opacity : 0;
+   }
     to {
-        opacity: 1;
-    }
+        opacity : 1;
+   }
 }
-
 @media screen and (max-width: 768px) {
     .content {
-        display: grid;
-        padding: 1rem;
-        margin: 1rem;
-        border: 1px white solid;
-    
-    }
-
+        display : grid;
+        border : white solid 1px;
+   }
     #content-pic, #content-text {
-        max-width: 100%;
-        height: auto;
-        font-size: 1.5rem;
-    }
-    
+        max-width : 100%;
+        height : auto;
+        font-size : 1.5rem;
+   }
     #full-name {
-        padding-bottom: 5svh;
-    }
-
+        padding-bottom : 5svh;
+   }
     #myName {
-        padding-top: 10svh;
-    }
-
+        padding-top : 10svh;
+   }
     .intro p {
-        margin-top: 5svh;
-    }
+        margin-top : 5svh;
+   }
     .header-pic {
-        margin: 7svh;
-    }
-
+        margin : 7svh;
+   }
     header {
-        position: relative;
-        flex-direction: column;
-        height: auto;
-        padding: 1rem;
-        min-height: 70svh;
-        justify-content: space-around;
-        
-    }
+        position : relative;
+        flex-direction : column;
+        height : auto;
+        padding : 1rem;
+        min-height : 70svh;
+        justify-content : space-around;
+   }
     .nav {
-        min-height: 8svh;
-    }
-
+        min-height : 8svh;
+   }
     #arrow {
-        padding: 5svh;
-    }
-
+        padding : 5svh;
+   }
     .fixed-nav {
-        margin-bottom: 5svh;
-        width: 100%;
-        box-sizing: border-box;
-    
-    }
-
+        margin-bottom : 5svh;
+        width : 100%;
+        box-sizing : border-box;
+   }
     header, footer {
-        padding: 1rem;
-    }
-
+        padding : 1rem;
+   }
     p {
-        font-size: 1.5rem;
-    }
-    
+        font-size : 1.5rem;
+   }
     a {
-        font-size: 1.2rem;
-    }
-
+        font-size : 1.2rem;
+   }
     #myName p {
-        margin: .1rem;
-    }
-
+        margin : 0.1rem;
+   }
     .content {
-        flex-direction: row;
-    }
+        flex-direction : row;
+   }
 }
-
-
 .nav {
-    min-height: 12.5svh;
+    min-height : 12.5svh;
+}
+@font-face {
+    font-family : 'Montserrat';
+    font-style : normal;
+    font-weight : 400;
+    font-display : swap;
+    src : url(https://fonts.gstatic.com/s/montserrat/v26/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Ew-.ttf) format('truetype');
 }
 
 
+.content-3 {
+    background-color: green;
+}
 
-
+  
