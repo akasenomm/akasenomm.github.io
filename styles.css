@@ -57,11 +57,12 @@ footer p {
     font-size: 1rem;
 }
 
-p {
+p, a {
 
     font-family: 'Montserrat', sans-serif;
     color: black;
     font-size: 2rem;
+    text-decoration: none;
 }
 
 
@@ -225,7 +226,7 @@ body {
 .content-2, .content-3{
     margin-top: 10vh;
     background-color: white;
-    height: 100vh;
+    height: 87.5vh;
     width: 100%;
     padding: 10vh;
 }
@@ -235,6 +236,45 @@ body {
 }
 .content-3 p {
     color: white;
+}
+
+
+
+.nav a {
+    text-decoration: none;
+    position: relative;
+    color: black; /* Fallback color */
+}
+
+.nav a:hover {
+    background: linear-gradient(to left, #6c26e4, #ed4db3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav a::before,
+.nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px; /* Adjust the thickness of the line here */
+    bottom: -5px; /* Adjust the position of the line here */
+    margin: auto;
+    background: linear-gradient(to left, #6c26e4, #ed4db3);
+    transition: all 0.5s;
+}
+
+.nav a::before {
+    left: 50%;
+}
+
+.nav a::after {
+    right: 50%;
+}
+
+.nav a:hover::before,
+.nav a:hover::after {
+    width: 50%;
 }
 
 
