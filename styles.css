@@ -2,8 +2,15 @@
     padding: 0;
     margin: 0;
 }
+
+
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 11.5svh;
+}
 body {
-    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -23,7 +30,7 @@ footer {
 header {
     display: flex;
     background-color:white;
-    min-height: 50vh;
+    min-height: 50svh;
     padding: 5.5% 10%;
     text-align: center;
     align-items: center;
@@ -40,11 +47,11 @@ header {
     background-color: black;
     border-radius: 0.2rem;
     padding: 2rem;
-    height: 100vh;
+    height: 100svh;
     flex-grow: 1;
     margin: 2rem 10rem;
     margin-top: 5rem;
-    border: 10px white solid;
+    border: 5px white solid;
     justify-content: space-around;
 
 }
@@ -111,7 +118,7 @@ h1 {
 }
 
 #arrow {
-    padding: 5vh;
+    padding: 5svh;
     color: white;
     align-self: center;
 }
@@ -121,7 +128,7 @@ h1 {
     height: 15rem;
     max-height: 100%;
     max-width: 100%;
-    border: 1px gray dotted;
+    border: 3px whitesmoke solid;
     border-radius: 10%;
 }
 
@@ -153,7 +160,7 @@ h1 {
     align-items: center;
     justify-content: center;
     margin: .2rem;
-    margin-top: 6vh; /* Adjust the top margin as needed */
+    margin-top: 6svh; /* Adjust the top margin as needed */
 }
 
 #firstname, #lastname {
@@ -172,9 +179,9 @@ h1 {
 
 .nav {
     display: flex;
-    height: 11.5vh;
+    height: 11.5svh;
     width: 100%;
-    width: 100vw;
+    width: 100svw;
     box-sizing: border-box;
 
     background-color: white;
@@ -195,12 +202,12 @@ h1 {
 
     box-sizing: border-box;
     display: flex;
-    height: 11.5vh;
+    height: 11.5svh;
     position: fixed;
     z-index: 1; /* This ensures the nav stays on top of other content */
 
     display: flex;
-    height: 11.5vh;
+    height: 11.5svh;
     background-color: white;
     justify-content: space-around;
     align-items: center;
@@ -224,11 +231,11 @@ body {
 }
 
 .content-2, .content-3{
-    margin-top: 10vh;
+    margin-top: 10svh;
     background-color: white;
-    height: 87.5vh;
+    height: 87.5svh;
     width: 100%;
-    padding: 10vh;
+    padding: 10svh;
 }
 
 .content-3 {
@@ -280,6 +287,8 @@ body {
 
 
 
+
+
 @keyframes fade {
     from {
         opacity: 0;
@@ -288,11 +297,14 @@ body {
         opacity: 1;
     }
 }
+
 @media screen and (max-width: 768px) {
     .content {
         display: grid;
         padding: 1rem;
         margin: 1rem;
+        border: 1px white solid;
+    
     }
 
     #content-pic, #content-text {
@@ -301,23 +313,40 @@ body {
         font-size: 1.5rem;
     }
     
+    #full-name {
+        padding-bottom: 5svh;
+    }
+
+    #myName {
+        padding-top: 10svh;
+    }
+
+    .intro p {
+        margin-top: 5svh;
+    }
+    .header-pic {
+        margin: 7svh;
+    }
 
     header {
         position: relative;
         flex-direction: column;
         height: auto;
         padding: 1rem;
-        min-height: 55vh;
+        min-height: 70svh;
         justify-content: space-around;
         
     }
+    .nav {
+        min-height: 8svh;
+    }
 
     #arrow {
-        padding: 5vh;
+        padding: 5svh;
     }
 
     .fixed-nav {
-        margin-bottom: 5vh;
+        margin-bottom: 5svh;
         width: 100%;
         box-sizing: border-box;
     
@@ -330,6 +359,10 @@ body {
     p {
         font-size: 1.5rem;
     }
+    
+    a {
+        font-size: 1.2rem;
+    }
 
     #myName p {
         margin: .1rem;
@@ -338,6 +371,11 @@ body {
     .content {
         flex-direction: row;
     }
+}
+
+
+.nav {
+    min-height: 12.5svh;
 }
 
 

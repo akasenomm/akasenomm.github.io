@@ -95,6 +95,8 @@ function scrollFunction() {
     }
 }
 
+
+
 // Additional code for revealing elements and arrow opacity...
 
 
