@@ -172,24 +172,36 @@ h1 {
 .nav {
     display: flex;
     height: 11.5vh;
+    width: 100%;
+    width: 100vw;
+    box-sizing: border-box;
+
     background-color: white;
     border: 2px black solid;
     justify-content: space-around;
     align-items: center;
 }
 
-.nav p {
+.nav p, .fixed-nav p {
     color: black;
     font-size: 1.68rem;
 }
 
+
 .fixed-nav {
     display: flex;
-    width: 100%;
+
+    box-sizing: border-box;
     display: flex;
     height: 11.5vh;
     position: fixed;
     z-index: 1; /* This ensures the nav stays on top of other content */
+
+    display: flex;
+    height: 11.5vh;
+    background-color: white;
+    justify-content: space-around;
+    align-items: center;
 }
 
 #arrow {
