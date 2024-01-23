@@ -67,7 +67,7 @@ window.addEventListener('load', function () {
     document.body.style.opacity = 1;
 });
 
-window.addEventListener('scroll', debounce(handleScroll, 25)); // Debounce scroll events. Before: 50
+window.addEventListener('scroll', debounce(handleScroll, 50)); // Debounce scroll events. Before: 50
 
 
 // For the fixed nav bar
