@@ -18,6 +18,32 @@ function reveal() {
     }
 }
 
+// Scrollspy functionality
+window.addEventListener('scroll', function (event) {
+    var scrollPosition = window.scrollY;
+    var links = document.querySelectorAll('#navbar a');
+    var viewportHeight = window.innerHeight;
+    var percentage = 0.115; // Adjust this value to your needs
+
+    links.forEach(function (link) {
+        var section = document.querySelector(link.hash);
+        if (
+            (section.offsetTop - viewportHeight * percentage) <= scrollPosition &&
+            section.offsetTop + section.offsetHeight > scrollPosition
+        ) {
+            // Remove 'active' class from all links
+            links.forEach(function (link) {
+                link.classList.remove('active');
+            });
+
+            // Add 'active' class to the current link
+            link.classList.add('active');
+        }
+    });
+});
+
+
+
 // Initial calculation on page load
 document.addEventListener('DOMContentLoaded', function () {
     scrollFunction();
@@ -29,7 +55,6 @@ window.addEventListener('resize', function () {
 });
 
 window.addEventListener('scroll', scrollFunction);
-
 
 window.onscroll = function() {
     scrollFunction();
@@ -69,7 +94,6 @@ window.addEventListener('load', function () {
 
 window.addEventListener('scroll', debounce(handleScroll, 50)); // Debounce scroll events. Before: 50
 
-
 // For the fixed nav bar
 function scrollFunction() {
     var navbar = document.querySelector(".nav");
@@ -107,8 +131,6 @@ window.addEventListener('resize', () => {
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
 
-
-
 // Anchor tag click scrolls to right section 
 window.addEventListener('DOMContentLoaded', (event) => {
     const navigation = document.querySelector(".nav");
@@ -119,21 +141,3 @@ window.addEventListener('DOMContentLoaded', (event) => {
       navigationHeight + "px"
     );
 });
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

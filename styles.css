@@ -334,14 +334,15 @@ body {
     }
 
     header {
-        padding: 0.1rem;
+        padding: 10vh;
     }
 
     .header-pic {
-        width: 20vh;
+        width: 30vh;
         height: auto;
     }
 }
+
 
 @media screen and (min-height: 600px) {
     .header-pic {
@@ -368,6 +369,11 @@ body {
         padding-bottom: 10vh;
     }
 }
+
+.nav a.active::before, .nav a.active::after {
+    width : 50%;
+}
+
 
 
 
@@ -401,6 +407,16 @@ body {
 
 }
 */
+
+.nav a::before, .nav a::after {
+    width : 0;
+}
+
+.nav a:hover::before, .nav a:hover::after,
+.nav a.active::before, .nav a.active::after {
+    width : 50%;
+}
+
 
 
 
