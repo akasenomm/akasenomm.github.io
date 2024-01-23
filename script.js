@@ -23,7 +23,7 @@ window.addEventListener('scroll', function (event) {
     var scrollPosition = window.scrollY;
     var links = document.querySelectorAll('#navbar a');
     var viewportHeight = window.innerHeight;
-    var percentage = 0.115; // Adjust this value to your needs
+    var percentage = 0.15; // Adjust this value to your needs
 
     links.forEach(function (link) {
         var section = document.querySelector(link.hash);

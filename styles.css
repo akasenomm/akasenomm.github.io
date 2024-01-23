@@ -200,7 +200,9 @@ body {
     color : black;
 }
 .nav a:hover {
-    /*background : linear-gradient(to left, #6c26e4, #ed4db3);*/
+    background : linear-gradient(to left, #6c26e4, #ed4db3);
+    background-clip : text;
+    color : transparent;
 }
 .nav a::before, .nav a::after {
     content : "";
@@ -415,6 +417,36 @@ body {
 .nav a:hover::before, .nav a:hover::after,
 .nav a.active::before, .nav a.active::after {
     width : 50%;
+}
+
+#about p {
+    color: white;
+}
+#about {
+    background: black;
+}
+
+#contact {
+    background-color: black;
+}
+
+#introduction p {
+    margin: 0rem 1rem;
+}
+.content {
+    padding: 0rem 12.5vw;
+
+}
+#content-text {
+    font-size: 3rem;
+}
+
+#introduction-text {
+    font-size: 1rem;
+}
+
+#content-pic {
+    margin: 2rem;
 }
 
 
