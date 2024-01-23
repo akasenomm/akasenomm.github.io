@@ -465,5 +465,36 @@ body {
     padding: 0;
 }
 
+#about {
+    /* Replace 'your-image.jpg' with the path to your image */
+    background-image: url('resources/contentpic.NEF.jpg');
+    background-size: cover; /* Resize the background image to cover the entire container */
+    margin-top: 20vh;
+    height: 68.5vh;
+    background-position: 85% 55%; /* Adjust this value as needed */
+    position: relative; /* Needed for the pseudo-element to position correctly */
+}
+
+#portfolio {
+    margin-top: 0;
+}
+
+#about::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Black background with 70% opacity */
+}
+
+#about p {
+    position: relative; /* This ensures the text is on top of the dark overlay */
+    color: white; /* Text color */
+    padding: 10px; /* Space around the text */
+}
+
+
 
   
