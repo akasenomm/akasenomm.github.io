@@ -223,6 +223,10 @@ body {
 .nav a:hover::before, .nav a:hover::after {
     width : 50%;
 }
+
+.nav a.active::before, .nav a.active::after {
+    width : 50%;
+}
 @keyframes fade {
     from {
         opacity : 0;
@@ -372,9 +376,6 @@ body {
     }
 }
 
-.nav a.active::before, .nav a.active::after {
-    width : 50%;
-}
 
 
 
@@ -445,11 +446,24 @@ body {
     font-size: 1rem;
 }
 
-#content-pic {
-    margin: 2rem;
+
+#about {
+    padding: 3vh;
+    margin: 0;
+    width: 100%;  /* or any specific width */
+    min-width: 100%;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-items: center;
 }
 
 
+#introduction {
+    margin: 0;
+    padding: 2rem;
+    padding: 0;
+}
 
 
   

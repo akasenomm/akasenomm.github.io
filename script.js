@@ -19,7 +19,7 @@ function reveal() {
 }
 
 // Scrollspy functionality
-window.addEventListener('scroll', function (event) {
+function updateActiveLink(event) {
     var scrollPosition = window.scrollY;
     var links = document.querySelectorAll('#navbar a');
     var viewportHeight = window.innerHeight;
@@ -40,7 +40,11 @@ window.addEventListener('scroll', function (event) {
             link.classList.add('active');
         }
     });
-});
+}
+
+window.addEventListener('scroll', updateActiveLink);
+window.addEventListener('touchmove', updateActiveLink);
+
 
 
 
