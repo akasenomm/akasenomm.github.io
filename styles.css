@@ -525,7 +525,13 @@ body {
     }
 }
 
+footer {
+    margin-top: -1rem;
+    padding-top: 0;
+    background-color: #ee5eba;
+}
 
-
-
-  
+footer p {
+    color: white;
+    font-weight: bold;
+}
