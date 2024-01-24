@@ -467,12 +467,13 @@ body {
 
 #about {
     /* Replace 'your-image.jpg' with the path to your image */
-    background-image: url('resources/contentpic.NEF.jpg');
+    background-image: url('resources/summerpic.jpg');
     background-size: cover; /* Resize the background image to cover the entire container */
     margin-top: 20vh;
     height: 68.5vh;
-    background-position: 85% 55%; /* Adjust this value as needed */
+    background-position: 95% 5%; /* Adjust this value as needed */
     position: relative; /* Needed for the pseudo-element to position correctly */
+    filter: grayscale(100%);
 }
 
 #portfolio {
@@ -486,14 +487,37 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Black background with 70% opacity */
+    background-color: rgba(0, 0, 0, 0.90); /* Black background with 70% opacity */
 }
 
 #about p {
     position: relative; /* This ensures the text is on top of the dark overlay */
     color: white; /* Text color */
     padding: 10px; /* Space around the text */
+    text-align: justify;
 }
+
+#about {
+    padding: 10vw;
+}
+
+.content-2, .content-3 {
+
+}
+
+@media screen and (min-height: 800px) and (min-width: 1200px) {
+    header {
+        min-height: 70vh;
+    }
+
+}
+
+@media screen and (max-height: 800px) {
+    header {
+        min-height: 70vh;
+    }
+}
+
 
 
 
