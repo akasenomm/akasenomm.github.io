@@ -50,7 +50,7 @@ header {
 footer p {
     font-size : 1rem;
 }
-p, a {
+p, a, li {
     font-family : 'Montserrat', sans-serif;
     color : black;
     font-size : 1.314rem;
@@ -501,9 +501,6 @@ body {
     padding: 10vw;
 }
 
-.content-2, .content-3 {
-
-}
 
 @media screen and (min-height: 800px) and (min-width: 1200px) {
     header {
@@ -535,3 +532,57 @@ footer p {
     color: white;
     font-weight: bold;
 }
+
+.contactlist {
+    border: 2px solid white;
+    margin: 1rem;
+    padding: 2rem;
+    
+}
+
+.contactlist li, .contactlist li a {
+    color: white;
+    margin: 1rem;
+    list-style-type: none;
+    padding: 0.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+#lilogo {
+    width: 1rem;
+    margin-right: 0.75rem;
+}
+
+.contactlogo {    
+    width: 1rem;
+    margin-right: 0.75rem;
+}
+
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.contactinfo {
+    margin-top: 2rem;
+}
+
+#portfolio {
+    justify-content: center;
+}
+
+li a {
+    font-size: 1.5vw;
+    white-space: nowrap;
+}
+
+li div {
+    display: flex;
+    align-items: center;
+
+}
+
+
