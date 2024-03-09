@@ -514,7 +514,7 @@ body {
 
 @media screen and (max-height: 800px) {
     header {
-        min-height: 70vh;
+        min-height: 62.5vh;
     }
 }
 
