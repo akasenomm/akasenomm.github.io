@@ -74,7 +74,7 @@ a:hover {
 }
 
 #wrapper {
-	animation: wrapper 3s forwards;
+	animation: wrapper 1.5s forwards;
 	height: 100%;
 	left: 0;
 	opacity: 0;
@@ -105,8 +105,19 @@ a:hover {
 	object-fit: cover;
 	object-position: center;
 	z-index: -1;
-	opacity: 50%;
+	opacity: 1;
+	animation: fadeVideo 2.25s forwards;
 }
+
+@keyframes fadeVideo {
+	0% {
+		opacity: 1;   /* fully visible */
+	}
+	100% {
+		opacity: 0.6; /* final dimmed opacity */
+	}
+}
+
 
 #main {
 	height: 100%;
@@ -128,7 +139,7 @@ a:hover {
 }
 
 #header {
-	animation: header 1s 2.25s forwards;
+	animation: header 0.75s 1s forwards;
 	backface-visibility: hidden;
 	transform: translate3d(0,0,0);
 	cursor: default;
@@ -253,14 +264,13 @@ a:hover {
 .profile-pic-container::after {
 	content: "";
 	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+	inset: 0;
 	border-radius: 50%;
 	box-shadow: 0 0 10px 4px rgba(255, 255, 255, 1);
-	pointer-events: none;
+	opacity: 1;
+	transition: box-shadow 0.3s ease-in-out;
 }
+
 
 @keyframes wrapper {
 	0% { opacity: 0; }
@@ -413,17 +423,6 @@ a:hover {
 	opacity: 0;
 }
 
-.profile-pic-container::after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	border-radius: 50%;
-	animation: glow-appear 2s ease-out forwards;
-	animation-delay: 2.25s;
-	opacity: 0;
-	box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0);
-}
-
 @keyframes glow-appear {
 	0% {
 		opacity: 0;
@@ -481,5 +480,111 @@ a:hover {
 	#footer {
 		bottom: 0.5em;
 		font-size: 0.8em;
+	}
+}
+
+.profile-pic-container:hover::after {
+	box-shadow: 0 0 25px 8px rgba(255, 255, 255, 1);
+}
+
+#bg-video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	z-index: -1;
+	opacity: 1;
+	/* Fade from opacity 1 → 0.6 over 2.25s, starting right away */
+	animation: fadeVideo 2.25s forwards;
+}
+
+@keyframes fadeVideo {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0.6;
+	}
+}
+
+/* HEADER (profile + text) */
+#header {
+	/* Appear over 0.75s, start at 1.5s */
+	animation: header 0.75s 1.5s forwards;
+	backface-visibility: hidden;
+	transform: translate3d(0,0,0);
+	cursor: default;
+	display: inline-block;
+	opacity: 0;
+	position: relative;
+	text-align: center;
+	top: -1em;
+	vertical-align: middle;
+	width: 90%;
+}
+
+/* Remove the separate nth-child delays so nav items appear together */
+#header nav li {
+	/* Appear over 0.75s, start at 1.5s */
+	animation: nav-icons 0.75s 1.5s ease-in-out forwards;
+	backface-visibility: hidden;
+	display: inline-block;
+	height: 5.35em;
+	line-height: 5.885em;
+	opacity: 0;
+	position: relative;
+	top: 0;
+	width: 5.35em;
+}
+
+/* FOOTER */
+#footer {
+	position: fixed;
+	bottom: 1em;
+	width: 100%;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 0.9em;
+
+	/* Appear over 0.75s, start at 1.5s */
+	animation: footer-appear 0.75s ease-out 1.5s forwards;
+	opacity: 0;
+}
+
+/* Keep your keyframes but unify the timing/duration: */
+@keyframes header {
+	0% {
+		transform: translate3d(0,1em,0);
+		opacity: 0;
+	}
+	100% {
+		transform: translate3d(0,0,0);
+		opacity: 1;
+	}
+}
+
+@keyframes nav-icons {
+	0% {
+		transform: translate3d(0,1em,0);
+		opacity: 0;
+	}
+	100% {
+		transform: translate3d(0,0,0);
+		opacity: 1;
+	}
+}
+
+@keyframes footer-appear {
+	0% {
+		transform: translateY(1em);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
 	}
 }
