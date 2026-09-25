@@ -92,6 +92,7 @@
 				<img src="assets/css/images/CVPILT_2_-removebg-preview.png" alt="Artur Kasenõmm" class="profile-pic" width="120" height="120" fetchpriority="high" />
 			</div>
 			<h1>Artur Kasenõmm</h1>
+			<p class="tagline" aria-hidden="true"><span class="prompt">$</span> <span class="tagline-text"></span><span class="tagline-cursor">_</span></p>
 			<div id="introduction">
 				<p>I do computer stuff. If you want to discuss an exciting idea or think I might be the one to help you build your next project, feel free to reach out. I’m always up for a great collaboration!</p>
 			</div>
@@ -145,6 +146,46 @@
 		// picture and the stylesheets.
 		if (document.readyState === 'complete') start();
 		else window.addEventListener('load', start, { once: true });
+	})();
+
+	var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	// Terminal-style rotating tagline: types a phrase, pauses, deletes it, moves on.
+	(function () {
+		var el = document.querySelector('.tagline-text');
+		if (!el) return;
+
+		var phrases = ['computer stuff', 'probably debugging something', 'probably overthinking this', 'definitely not a robot', 'riding my bike', 'at work', 'sleeping'];
+
+		if (prefersReducedMotion) {
+			el.textContent = phrases[0];
+			return;
+		}
+
+		var phraseIndex = 0, charIndex = 0, deleting = false;
+
+		function tick() {
+			var current = phrases[phraseIndex];
+			if (!deleting) {
+				charIndex++;
+				el.textContent = current.slice(0, charIndex);
+				if (charIndex === current.length) {
+					deleting = true;
+					setTimeout(tick, 1600);
+					return;
+				}
+			} else {
+				charIndex--;
+				el.textContent = current.slice(0, charIndex);
+				if (charIndex === 0) {
+					deleting = false;
+					phraseIndex = (phraseIndex + 1) % phrases.length;
+				}
+			}
+			setTimeout(tick, deleting ? 35 : 60);
+		}
+
+		setTimeout(tick, 900);
 	})();
 </script>
 </body>
