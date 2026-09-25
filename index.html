@@ -1,67 +1,71 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
-	<title>Artur Kasenõmm</title><img src="../../Downloads/icons8-my-computer-16.png" height="16" width="16"/>
-    <meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<meta name="description" content="Artur Kasenõmm – personal webpage.">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<title>Artur Kasenõmm</title>
+	<meta name="description" content="Artur Kasenõmm – personal webpage." />
+	<meta name="author" content="Artur Kasenõmm" />
+	<meta name="color-scheme" content="dark" />
+	<meta name="theme-color" content="#000000" />
+
+	<link rel="canonical" href="https://arturkasenomm.com/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Artur Kasenõmm" />
+	<meta property="og:description" content="Artur Kasenõmm – personal webpage." />
+	<meta property="og:url" content="https://arturkasenomm.com/" />
+	<meta property="og:image" content="https://arturkasenomm.com/assets/css/images/CVPILT_2_-removebg-preview.png" />
+	<meta name="twitter:card" content="summary" />
+
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/css/images/new/icons8-my-computer-16.png" />
+	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	<link rel="icon" type="image/svg+xml" href="assets/css/images/new/icons8-my-computer-16.png">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 <body class="is-preload">
 <div id="wrapper">
 
-	<!-- The video-based background -->
-	<div id="bg">
-		<video id="bg-video" autoplay muted loop playsinline>
-<!--			<source src="assets/css/images/new/4750612_Rain_Drop_3840x2160.mp4" type="video/mp4">-->
-<!--			<source src="assets/css/images/new/0_Abstract_Background_3840x2160.mp4" type="video/mp4">-->
-<!--			<source src="assets/css/images/new/6912099_Motion%20Graphics_Motion%20Graphic_3840x2160.mp4" type="video/mp4">-->
-			<source src="assets/css/images/new/6917913_Motion%20Graphics_Motion%20Graphic_3840x2160.mp4" type="video/mp4">
-			<!-- Add more sources if needed for better compatibility -->
-			Your browser does not support the video tag.
+	<!-- The video-based background (decorative) -->
+	<div id="bg" aria-hidden="true">
+		<video id="bg-video" autoplay muted loop playsinline preload="auto" disablepictureinpicture tabindex="-1">
+			<source src="assets/css/images/new/6917913_Motion%20Graphics_Motion%20Graphic_3840x2160.mp4" type="video/mp4" />
 		</video>
-<!--		<img src="assets/css/images/68187998_awesome%2010.svg"-->
-<!--			 alt="Profile picture" class="profile-pic" />-->
 	</div>
 
 	<div id="main">
 		<header id="header">
-			<!-- Your content (profile pic, heading, links, etc.) -->
 			<div class="profile-pic-container">
-				<img src="assets/css/images/CVPILT_2_-removebg-preview.png" alt="Profile" class="profile-pic" />
+				<img src="assets/css/images/CVPILT_2_-removebg-preview.png" alt="Artur Kasenõmm" class="profile-pic" width="120" height="120" />
 			</div>
 			<h1>Artur Kasenõmm</h1>
-<!--			<p>Software Engineer</p>-->
 			<div id="introduction">
-<!--				<p>I like to code. If you want to discuss an exciting idea or think I might be the one to help you build your next project, feel free to reach out. I’m always up for a great collaboration!</p>-->
 				<p>I do computer stuff. If you want to discuss an exciting idea or think I might be the one to help you build your next project, feel free to reach out. I’m always up for a great collaboration!</p>
 			</div>
-			<nav>
+			<nav aria-label="Elsewhere">
 				<ul>
 					<li><a href="https://www.linkedin.com/in/artur-kasenomm/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 					<li><a href="mailto:artur.kasenomm@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-					<li><a href="https://github.com/akasenomm" class="icon brands fa-github"><span class="label">Github</span></a></li>
+					<li><a href="https://github.com/akasenomm" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 				</ul>
 			</nav>
 		</header>
 
 		<footer id="footer">
-			© 2024 Artur Kasenõmm
+			© <span id="year">2026</span> Artur Kasenõmm
 		</footer>
 	</div>
 
 </div>
 <script>
-	window.onload = function() {
+	// `is-preload` suppresses the intro animations until the stylesheet has been
+	// applied; dropping it on the next frame starts them. noscript.css covers the
+	// case where this never runs.
+	requestAnimationFrame(function () {
 		document.body.classList.remove('is-preload');
-	}
-	window.ontouchmove = function() { return false; }
-	window.onorientationchange = function() { document.body.scrollTop = 0; }
+	});
+
+	document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
-
-

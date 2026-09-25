@@ -1,7 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
-@import url("fontawesome-all.min.css");
+/*
+	Based on Aerial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
 
-html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, li, footer, header, nav {
+/* Reset */
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, li, footer, header, nav, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -9,6 +14,20 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, li, footer, header
 	font: inherit;
 	vertical-align: baseline;
 }
+
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+ul {
+	list-style: none;
+}
+
+/* Basic */
 
 body {
 	line-height: 1;
@@ -18,13 +37,18 @@ body {
 	-webkit-text-size-adjust: none;
 }
 
-ul {
-	list-style: none;
+/* Holds back the intro animations until the stylesheet has been applied.
+   Removed by the inline script in index.html. */
+body.is-preload *,
+body.is-preload *:before,
+body.is-preload *:after {
+	animation: none !important;
+	transition: none !important;
 }
 
 body, input, select, textarea {
 	color: #fff;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
 	font-size: 15pt;
 	font-weight: 300;
 	letter-spacing: -0.025em;
@@ -42,6 +66,8 @@ a {
 a:hover {
 	border-color: transparent;
 }
+
+/* Icon */
 
 .icon {
 	text-decoration: none;
@@ -61,10 +87,6 @@ a:hover {
 	font-weight: 400;
 }
 
-.icon > .label {
-	display: none;
-}
-
 .icon.solid:before {
 	font-weight: 900;
 }
@@ -72,6 +94,22 @@ a:hover {
 .icon.brands:before {
 	font-family: 'Font Awesome 5 Brands';
 }
+
+/* The icon itself is a pseudo-element, so the label has to stay in the
+   accessibility tree to give the link a name — hide it visually only. */
+.icon > .label {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+}
+
+/* Wrapper */
 
 #wrapper {
 	animation: wrapper 1.5s forwards;
@@ -84,12 +122,14 @@ a:hover {
 	overflow: hidden;
 }
 
+/* BG */
+
 #bg {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	z-index: -1;
 	overflow: hidden;
 	background: #000;
@@ -97,27 +137,17 @@ a:hover {
 
 #bg-video {
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	object-position: center;
-	z-index: -1;
-	opacity: 1;
+	/* Fade from opacity 1 -> 0.6 over 2.25s, starting right away. */
 	animation: fadeVideo 2.25s forwards;
 }
 
-@keyframes fadeVideo {
-	0% {
-		opacity: 1;   /* fully visible */
-	}
-	100% {
-		opacity: 0.6; /* final dimmed opacity */
-	}
-}
-
+/* Main */
 
 #main {
 	height: 100%;
@@ -138,10 +168,12 @@ a:hover {
 	width: 1px;
 }
 
+/* Header */
+
 #header {
-	animation: header 0.75s 1s forwards;
+	animation: header 0.75s 1.5s forwards;
 	backface-visibility: hidden;
-	transform: translate3d(0,0,0);
+	transform: translate3d(0, 0, 0);
 	cursor: default;
 	display: inline-block;
 	opacity: 0;
@@ -159,18 +191,12 @@ a:hover {
 	line-height: 1em;
 }
 
-#header p {
-	font-size: 1.25em;
-	margin: 0.75em 0 0.25em 0;
-	opacity: 0.75;
-}
-
 #header nav {
 	margin: 1.5em 0 0 0;
 }
 
 #header nav li {
-	animation: nav-icons 0.5s ease-in-out forwards;
+	animation: nav-icons 0.75s 1.5s ease-in-out forwards;
 	backface-visibility: hidden;
 	display: inline-block;
 	height: 5.35em;
@@ -180,10 +206,6 @@ a:hover {
 	top: 0;
 	width: 5.35em;
 }
-
-#header nav li:nth-child(1) { animation-delay: 2.5s; }
-#header nav li:nth-child(2) { animation-delay: 2.75s; }
-#header nav li:nth-child(3) { animation-delay: 3s; }
 
 #header nav a {
 	-webkit-tap-highlight-color: transparent;
@@ -225,9 +247,13 @@ a:hover {
 	color: #fff;
 }
 
-#header nav a span {
-	display: none;
+#header nav a:focus-visible:before {
+	background-color: rgba(255, 255, 255, 0.175);
+	outline: solid 2px #fff;
+	outline-offset: 3px;
 }
+
+/* Introduction */
 
 #introduction {
 	max-width: 600px;
@@ -237,11 +263,12 @@ a:hover {
 }
 
 #introduction p {
-	/*font-size: 1.1em;*/
 	font-size: 1.2em;
 	font-weight: normal;
 	margin: 0;
 }
+
+/* Profile picture */
 
 .profile-pic-container {
 	position: relative;
@@ -261,7 +288,17 @@ a:hover {
 	display: block;
 }
 
-.profile-pic-container::after {
+.profile-pic-container:before {
+	content: "";
+	position: absolute;
+	inset: -2px;
+	border-radius: 50%;
+	border: 2px solid rgba(255, 255, 255, 0.5);
+	animation: circle-appear 1.5s ease-out 2.25s forwards;
+	opacity: 0;
+}
+
+.profile-pic-container:after {
 	content: "";
 	position: absolute;
 	inset: 0;
@@ -271,170 +308,54 @@ a:hover {
 	transition: box-shadow 0.3s ease-in-out;
 }
 
+.profile-pic-container:hover:after {
+	box-shadow: 0 0 20px 8px rgba(255, 255, 255, 1);
+}
+
+/* Footer */
+
+#footer {
+	position: fixed;
+	bottom: 1em;
+	width: 100%;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.5);
+	font-size: 0.9em;
+	animation: footer-appear 0.75s ease-out 1.5s forwards;
+	opacity: 0;
+}
+
+/* Keyframes */
 
 @keyframes wrapper {
 	0% { opacity: 0; }
 	100% { opacity: 1; }
 }
 
+@keyframes fadeVideo {
+	0% { opacity: 1; }
+	100% { opacity: 0.6; }
+}
+
 @keyframes header {
 	0% {
-		transform: translate3d(0,1em,0);
+		transform: translate3d(0, 1em, 0);
 		opacity: 0;
 	}
 	100% {
-		transform: translate3d(0,0,0);
+		transform: translate3d(0, 0, 0);
 		opacity: 1;
 	}
 }
 
 @keyframes nav-icons {
 	0% {
-		transform: translate3d(0,1em,0);
+		transform: translate3d(0, 1em, 0);
 		opacity: 0;
 	}
 	100% {
-		transform: translate3d(0,0,0);
+		transform: translate3d(0, 0, 0);
 		opacity: 1;
-	}
-}
-
-@media screen and (max-width: 1680px) {
-	body, input, select, textarea {
-		font-size: 13pt;
-	}
-}
-
-@media screen and (max-width: 1280px) {
-	body, input, select, textarea {
-		font-size: 12pt;
-	}
-}
-
-@media screen and (max-width: 736px) {
-	body {
-		min-width: 320px;
-		font-size: 11pt;
-	}
-
-	#header h1 {
-		font-size: 2.5em;
-	}
-
-	#header p {
-		font-size: 1em;
-	}
-
-	#header nav {
-		font-size: 1em;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	#header nav {
-		padding: 0 1em;
-	}
-}
-
-@media screen and (min-width: 1200px) {
-	#bg-video {
-		width: 100vw;
-		height: auto;
-		min-height: 100vh;
-	}
-}
-
-@media screen and (max-width: 1199px) and (min-width: 768px) {
-	#bg-video {
-		width: auto;
-		height: 100vh;
-		min-width: 100vw;
-	}
-}
-
-@media screen and (max-width: 767px) {
-	#bg-video {
-		width: auto;
-		height: 100vh;
-		object-fit: cover;
-	}
-}
-
-@media screen and (orientation: portrait) {
-	#bg-video {
-		width: 100vw;
-		height: auto;
-		min-height: 100vh;
-		object-fit: cover;
-	}
-}
-
-@media screen and (orientation: landscape) {
-	#bg-video {
-		width: auto;
-		height: 100vh;
-		min-width: 100vw;
-		object-fit: cover;
-	}
-}
-
-@media screen and (min-aspect-ratio: 21/9) {
-	#bg-video {
-		width: 100vw;
-		height: auto;
-		object-fit: cover;
-	}
-}
-
-@media screen and (max-aspect-ratio: 9/16) {
-	#bg-video {
-		width: auto;
-		height: 100vh;
-		object-fit: cover;
-	}
-}
-
-.profile-pic-container {
-	position: relative;
-	display: inline-block;
-	width: 120px;
-	height: 120px;
-	margin: 0 auto 1em;
-	border-radius: 50%;
-	overflow: visible;
-}
-
-.profile-pic {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-radius: 50%;
-	display: block;
-}
-
-.profile-pic-container::before {
-	content: "";
-	position: absolute;
-	inset: -2px;
-	border-radius: 50%;
-	border: 2px solid rgba(255, 255, 255, 0.5);
-	animation: circle-appear 1.5s ease-out forwards;
-	animation-delay: 2.25s;
-	opacity: 0;
-}
-
-@keyframes glow-appear {
-	0% {
-		opacity: 0;
-		box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0);
-	}
-	50% {
-		opacity: 1;
-		box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.8);
-	}
-	100% {
-		opacity: 1;
-		box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6);
 	}
 }
 
@@ -449,22 +370,6 @@ a:hover {
 	}
 }
 
-* {
-	font-family: monospace !important;
-}
-
-#footer {
-	position: fixed;
-	bottom: 1em;
-	width: 100%;
-	text-align: center;
-	color: rgba(255, 255, 255, 0.5);
-	font-size: 0.9em;
-	animation: footer-appear 1s ease-out forwards;
-	animation-delay: 3.25s;
-	opacity: 0;
-}
-
 @keyframes footer-appear {
 	0% {
 		transform: translateY(1em);
@@ -476,115 +381,72 @@ a:hover {
 	}
 }
 
+/* Wide */
+
+@media screen and (max-width: 1680px) {
+	body, input, select, textarea {
+		font-size: 13pt;
+	}
+}
+
+/* Normal */
+
+@media screen and (max-width: 1280px) {
+	body, input, select, textarea {
+		font-size: 12pt;
+	}
+}
+
+/* Mobile */
+
 @media screen and (max-width: 736px) {
+	body {
+		min-width: 320px;
+	}
+
+	body, input, select, textarea {
+		font-size: 11pt;
+	}
+
+	#header h1 {
+		font-size: 2.5em;
+	}
+
+	#header nav {
+		font-size: 1em;
+	}
+
+	/* Growing the icon on tap shifts the layout on touch devices. */
+	#header nav a:hover,
+	#header nav a:active {
+		font-size: 1em;
+	}
+
 	#footer {
 		bottom: 0.5em;
 		font-size: 0.8em;
 	}
 }
 
-.profile-pic-container:hover::after {
-	box-shadow: 0 0 20px 8px rgba(255, 255, 255, 1);
-}
+/* Mobile (portrait) */
 
-#bg-video {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	object-position: center;
-	z-index: -1;
-	opacity: 1;
-	/* Fade from opacity 1 → 0.6 over 2.25s, starting right away */
-	animation: fadeVideo 2.25s forwards;
-}
-
-@keyframes fadeVideo {
-	0% {
-		opacity: 1;
+@media screen and (max-width: 480px) {
+	#header nav {
+		padding: 0 1em;
 	}
-	100% {
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+	*, *:before, *:after {
+		animation-duration: 0.001ms !important;
+		animation-delay: 0ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+	}
+
+	#bg-video {
 		opacity: 0.6;
-	}
-}
-
-/* HEADER (profile + text) */
-#header {
-	/* Appear over 0.75s, start at 1.5s */
-	animation: header 0.75s 1.5s forwards;
-	backface-visibility: hidden;
-	transform: translate3d(0,0,0);
-	cursor: default;
-	display: inline-block;
-	opacity: 0;
-	position: relative;
-	text-align: center;
-	top: -1em;
-	vertical-align: middle;
-	width: 90%;
-}
-
-/* Remove the separate nth-child delays so nav items appear together */
-#header nav li {
-	/* Appear over 0.75s, start at 1.5s */
-	animation: nav-icons 0.75s 1.5s ease-in-out forwards;
-	backface-visibility: hidden;
-	display: inline-block;
-	height: 5.35em;
-	line-height: 5.885em;
-	opacity: 0;
-	position: relative;
-	top: 0;
-	width: 5.35em;
-}
-
-/* FOOTER */
-#footer {
-	position: fixed;
-	bottom: 1em;
-	width: 100%;
-	text-align: center;
-	color: rgba(255, 255, 255, 0.5);
-	font-size: 0.9em;
-
-	/* Appear over 0.75s, start at 1.5s */
-	animation: footer-appear 0.75s ease-out 1.5s forwards;
-	opacity: 0;
-}
-
-/* Keep your keyframes but unify the timing/duration: */
-@keyframes header {
-	0% {
-		transform: translate3d(0,1em,0);
-		opacity: 0;
-	}
-	100% {
-		transform: translate3d(0,0,0);
-		opacity: 1;
-	}
-}
-
-@keyframes nav-icons {
-	0% {
-		transform: translate3d(0,1em,0);
-		opacity: 0;
-	}
-	100% {
-		transform: translate3d(0,0,0);
-		opacity: 1;
-	}
-}
-
-@keyframes footer-appear {
-	0% {
-		transform: translateY(1em);
-		opacity: 0;
-	}
-	100% {
-		transform: translateY(0);
-		opacity: 1;
 	}
 }

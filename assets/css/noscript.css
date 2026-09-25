@@ -1,27 +1,20 @@
 /*
-	Aerial by HTML5 UP
+	Based on Aerial by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
+	Without JavaScript the `is-preload` class is never removed, so the intro
+	animations never run. Reveal everything that starts out hidden.
 */
 
-/* Wrapper */
+#wrapper,
+#header,
+#header nav li,
+#footer,
+.profile-pic-container:before {
+	opacity: 1 !important;
+}
 
-	#wrapper {
-		opacity: 1 !important;
-	}
-
-/* Overlay */
-
-	#overlay {
-		opacity: 1 !important;
-	}
-
-/* Header */
-
-	#header {
-		opacity: 1 !important;
-	}
-
-		#header nav li {
-			opacity: 1 !important;
-		}
+#bg-video {
+	opacity: 0.6 !important;
+}
