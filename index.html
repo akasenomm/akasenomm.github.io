@@ -5,38 +5,87 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<title>Artur Kasenõmm</title>
-	<meta name="description" content="Artur Kasenõmm – personal webpage." />
+	<meta name="description" content="Personal site of Artur Kasenõmm (Artur Kasenomm) — links to GitHub and LinkedIn, and how to get in touch about new projects and collaborations." />
 	<meta name="author" content="Artur Kasenõmm" />
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 	<meta name="color-scheme" content="dark" />
 	<meta name="theme-color" content="#000000" />
 
 	<link rel="canonical" href="https://arturkasenomm.com/" />
 	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Artur Kasenõmm" />
+	<meta property="og:locale" content="en_US" />
 	<meta property="og:title" content="Artur Kasenõmm" />
-	<meta property="og:description" content="Artur Kasenõmm – personal webpage." />
+	<meta property="og:description" content="Personal site of Artur Kasenõmm (Artur Kasenomm) — links to GitHub and LinkedIn, and how to get in touch about new projects and collaborations." />
 	<meta property="og:url" content="https://arturkasenomm.com/" />
 	<meta property="og:image" content="https://arturkasenomm.com/assets/css/images/CVPILT_2_-removebg-preview.png" />
+	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image:width" content="577" />
+	<meta property="og:image:height" content="433" />
+	<meta property="og:image:alt" content="Artur Kasenõmm" />
 	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="Artur Kasenõmm" />
+	<meta name="twitter:description" content="Personal site of Artur Kasenõmm (Artur Kasenomm) — links to GitHub and LinkedIn, and how to get in touch about new projects and collaborations." />
+	<meta name="twitter:image" content="https://arturkasenomm.com/assets/css/images/CVPILT_2_-removebg-preview.png" />
+	<meta name="twitter:image:alt" content="Artur Kasenõmm" />
 
 	<link rel="icon" type="image/png" sizes="16x16" href="assets/css/images/new/icons8-my-computer-16.png" />
+
+	<!-- Font Awesome ships `font-display: block`, so the icons stay invisible
+	     until these land. Preloading skips a hop of the CSS -> font chain. -->
+	<link rel="preload" as="font" type="font/woff2" href="assets/webfonts/fa-brands-400.woff2" crossorigin />
+	<link rel="preload" as="font" type="font/woff2" href="assets/webfonts/fa-solid-900.woff2" crossorigin />
+
 	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@graph": [
+			{
+				"@type": "Person",
+				"@id": "https://arturkasenomm.com/#person",
+				"name": "Artur Kasenõmm",
+				"alternateName": "Artur Kasenomm",
+				"url": "https://arturkasenomm.com/",
+				"image": "https://arturkasenomm.com/assets/css/images/CVPILT_2_-removebg-preview.png",
+				"email": "mailto:artur.kasenomm@gmail.com",
+				"sameAs": [
+					"https://www.linkedin.com/in/artur-kasenomm/",
+					"https://github.com/akasenomm"
+				]
+			},
+			{
+				"@type": "WebSite",
+				"@id": "https://arturkasenomm.com/#website",
+				"url": "https://arturkasenomm.com/",
+				"name": "Artur Kasenõmm",
+				"description": "Personal site of Artur Kasenõmm (Artur Kasenomm) — links to GitHub and LinkedIn, and how to get in touch about new projects and collaborations.",
+				"inLanguage": "en",
+				"publisher": { "@id": "https://arturkasenomm.com/#person" },
+				"about": { "@id": "https://arturkasenomm.com/#person" }
+			}
+		]
+	}
+	</script>
 </head>
 <body class="is-preload">
 <div id="wrapper">
 
-	<!-- The video-based background (decorative) -->
+	<!-- The video-based background (decorative). It carries no `src`: the
+	     inline script attaches `data-src` once the page has loaded, and only
+	     on a connection that can spare the download. -->
 	<div id="bg" aria-hidden="true">
-		<video id="bg-video" autoplay muted loop playsinline preload="auto" disablepictureinpicture tabindex="-1">
-			<source src="assets/css/images/new/6917913_Motion%20Graphics_Motion%20Graphic_3840x2160.mp4" type="video/mp4" />
-		</video>
+		<video id="bg-video" data-src="assets/css/images/new/bg-video.mp4" data-src-webm="assets/css/images/new/bg-video.webm"
+			   autoplay muted loop playsinline preload="none" disablepictureinpicture tabindex="-1"></video>
 	</div>
 
 	<div id="main">
 		<header id="header">
 			<div class="profile-pic-container">
-				<img src="assets/css/images/CVPILT_2_-removebg-preview.png" alt="Artur Kasenõmm" class="profile-pic" width="120" height="120" />
+				<img src="assets/css/images/CVPILT_2_-removebg-preview.png" alt="Artur Kasenõmm" class="profile-pic" width="120" height="120" fetchpriority="high" />
 			</div>
 			<h1>Artur Kasenõmm</h1>
 			<div id="introduction">
@@ -44,9 +93,9 @@
 			</div>
 			<nav aria-label="Elsewhere">
 				<ul>
-					<li><a href="https://www.linkedin.com/in/artur-kasenomm/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://www.linkedin.com/in/artur-kasenomm/" rel="me noopener" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 					<li><a href="mailto:artur.kasenomm@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-					<li><a href="https://github.com/akasenomm" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="https://github.com/akasenomm" rel="me noopener" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 				</ul>
 			</nav>
 		</header>
@@ -66,6 +115,33 @@
 	});
 
 	document.getElementById('year').textContent = new Date().getFullYear();
+
+	// The background video is decorative, so it's skipped on a connection that
+	// can't spare it and for anyone who has asked for reduced motion. Everyone
+	// else gets the gradient #bg falls back to.
+	(function () {
+		var video = document.getElementById('bg-video');
+		if (!video || !video.dataset.src) return;
+
+		var conn = navigator.connection || {};
+		var metered = conn.saveData === true
+			|| /(^|-)2g$/.test(conn.effectiveType || '')
+			|| (typeof conn.downlink === 'number' && conn.downlink > 0 && conn.downlink < 2);
+		if (metered) return;
+
+		if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+		function start() {
+			var webm = video.dataset.srcWebm;
+			video.src = (webm && video.canPlayType('video/webm; codecs="vp9"')) ? webm : video.dataset.src;
+			video.load();
+		}
+
+		// Waiting for `load` keeps the video out of the way of the profile
+		// picture and the stylesheets.
+		if (document.readyState === 'complete') start();
+		else window.addEventListener('load', start, { once: true });
+	})();
 </script>
 </body>
 </html>

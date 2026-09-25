@@ -13,6 +13,8 @@ Static, no build step: edit `index.html` and `assets/css/main.css` directly.
 | `assets/css/fontawesome-all.min.css` + `assets/webfonts/` | Font Awesome 5.15.4 (self-hosted) |
 | `assets/css/images/` | Profile picture, favicon, background video |
 | `CNAME` | Custom domain for GitHub Pages |
+| `robots.txt` + `sitemap.xml` | Crawler directives; the sitemap lists the one page |
+| `404.html` | Served by GitHub Pages for unknown paths |
 
 To preview locally:
 
