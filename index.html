@@ -84,6 +84,7 @@
 	<div id="bg" aria-hidden="true">
 		<video id="bg-video" data-src="assets/css/images/new/bg-video.mp4" data-src-webm="assets/css/images/new/bg-video.webm"
 			   autoplay muted loop playsinline preload="none" disablepictureinpicture tabindex="-1"></video>
+		<div class="cursor-glow"></div>
 	</div>
 
 	<div id="main">
@@ -120,6 +121,39 @@
 	});
 
 	document.getElementById('year').textContent = new Date().getFullYear();
+
+	// Soft glow that follows the cursor. Skipped on touch-only devices (no
+	// mouse to follow) and reduced motion.
+	(function () {
+		var glow = document.querySelector('.cursor-glow');
+		if (!glow) return;
+
+		if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+		if (window.matchMedia && !window.matchMedia('(pointer: fine)').matches) return;
+
+		var x = window.innerWidth / 2, y = window.innerHeight / 2;
+		var queued = false;
+
+		function render() {
+			glow.style.setProperty('--x', x + 'px');
+			glow.style.setProperty('--y', y + 'px');
+			queued = false;
+		}
+
+		window.addEventListener('mousemove', function (e) {
+			x = e.clientX;
+			y = e.clientY;
+			glow.classList.add('is-active');
+			if (!queued) {
+				queued = true;
+				requestAnimationFrame(render);
+			}
+		}, { passive: true });
+
+		window.addEventListener('mouseleave', function () {
+			glow.classList.remove('is-active');
+		});
+	})();
 
 	// Lets the tagline wait for the heading's decrypt effect to actually
 	// finish, rather than guessing a timeout that could drift out of sync.
