@@ -97,7 +97,8 @@ a:hover {
 
 /* The icon itself is a pseudo-element, so the label has to stay in the
    accessibility tree to give the link a name — hide it visually only. */
-.icon > .label {
+.icon > .label,
+.visually-hidden {
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -192,6 +193,12 @@ a:hover {
 	font-weight: 900;
 	letter-spacing: -0.035em;
 	line-height: 1em;
+	animation: glow-pulse 6s ease-in-out 0.5s infinite alternate;
+}
+
+@keyframes glow-pulse {
+	0% { text-shadow: 0 0 16px rgba(255, 255, 255, 0.25), 0 0 46px rgba(150, 190, 255, 0.12); }
+	100% { text-shadow: 0 0 26px rgba(255, 255, 255, 0.4), 0 0 64px rgba(150, 190, 255, 0.22); }
 }
 
 #header nav {
@@ -245,7 +252,11 @@ a:hover {
 #header nav a:before {
 	transition: all 0.2s ease-in-out;
 	border-radius: 100%;
-	border: solid 1px #fff;
+	border: solid 1px rgba(255, 255, 255, 0.35);
+	background-color: rgba(255, 255, 255, 0.08);
+	backdrop-filter: blur(8px) saturate(140%);
+	-webkit-backdrop-filter: blur(8px) saturate(140%);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 	display: block;
 	font-size: 1.75em;
 	height: 2.5em;
@@ -257,7 +268,7 @@ a:hover {
 }
 
 #header nav a:hover:before {
-	background-color: rgba(255, 255, 255, 0.175);
+	background-color: rgba(255, 255, 255, 0.2);
 	color: #fff;
 	transform: scale(1.08);
 }
@@ -269,7 +280,7 @@ a:hover {
 }
 
 #header nav a:focus-visible:before {
-	background-color: rgba(255, 255, 255, 0.175);
+	background-color: rgba(255, 255, 255, 0.2);
 	outline: solid 2px #fff;
 	outline-offset: 3px;
 }
@@ -344,6 +355,29 @@ a:hover {
 	font-size: 0.9em;
 	animation: footer-appear 0.4s ease-out 0.1s forwards;
 	opacity: 0;
+}
+
+.glass-pill {
+	display: inline-block;
+	padding: 0.5em 1.4em;
+	border-radius: 999px;
+	background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04));
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	backdrop-filter: blur(20px) saturate(180%);
+	-webkit-backdrop-filter: blur(20px) saturate(180%);
+	box-shadow:
+		0 8px 24px rgba(0, 0, 0, 0.3),
+		inset 0 1px 0 rgba(255, 255, 255, 0.35),
+		inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+	transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.glass-pill:hover {
+	box-shadow:
+		0 8px 28px rgba(0, 0, 0, 0.35),
+		inset 0 1px 0 rgba(255, 255, 255, 0.45),
+		inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+	transform: translateY(-1px);
 }
 
 /* Keyframes */

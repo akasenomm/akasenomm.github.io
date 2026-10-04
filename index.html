@@ -91,7 +91,7 @@
 			<div class="profile-pic-container">
 				<img src="assets/css/images/CVPILT_2_-removebg-preview.png" alt="Artur Kasenõmm" class="profile-pic" width="120" height="120" fetchpriority="high" />
 			</div>
-			<h1>Artur Kasenõmm</h1>
+			<h1><span class="decrypt-text" aria-hidden="true">Artur Kasenõmm</span><span class="visually-hidden">Artur Kasenõmm</span></h1>
 			<p class="tagline" aria-hidden="true"><span class="prompt">$</span> <span class="tagline-text"></span><span class="tagline-cursor">_</span></p>
 			<div id="introduction">
 				<p>I do computer stuff. If you want to discuss an exciting idea or think I might be the one to help you build your next project, feel free to reach out. I’m always up for a great collaboration!</p>
@@ -106,7 +106,7 @@
 		</header>
 
 		<footer id="footer">
-			© <span id="year">2026</span> Artur Kasenõmm
+			<span class="glass-pill">© <span id="year">2026</span> Artur Kasenõmm</span>
 		</footer>
 	</div>
 
@@ -120,6 +120,65 @@
 	});
 
 	document.getElementById('year').textContent = new Date().getFullYear();
+
+	// Lets the tagline wait for the heading's decrypt effect to actually
+	// finish, rather than guessing a timeout that could drift out of sync.
+	var decryptDone = false;
+	var decryptCallbacks = [];
+	function onDecryptDone(cb) {
+		if (decryptDone) cb();
+		else decryptCallbacks.push(cb);
+	}
+	function markDecryptDone() {
+		decryptDone = true;
+		decryptCallbacks.forEach(function (cb) { cb(); });
+		decryptCallbacks = [];
+	}
+
+	// Terminal-style "decrypt" reveal: the heading scrambles through random
+	// characters before settling left-to-right into the real name. The real
+	// text already sits in the markup, so this degrades to plain text if JS
+	// never runs.
+	(function () {
+		var el = document.querySelector('.decrypt-text');
+		if (!el) {
+			markDecryptDone();
+			return;
+		}
+
+		if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			markDecryptDone();
+			return;
+		}
+
+		var text = el.textContent;
+		var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+		var framesPerChar = 2.5;
+		var frame = 0;
+
+		function tick() {
+			var settled = Math.floor(frame / framesPerChar);
+			var output = '';
+			for (var i = 0; i < text.length; i++) {
+				if (text[i] === ' ' || i < settled) {
+					output += text[i];
+				} else {
+					output += chars[Math.floor(Math.random() * chars.length)];
+				}
+			}
+			el.textContent = output;
+			frame++;
+
+			if (settled >= text.length) {
+				el.textContent = text;
+				markDecryptDone();
+				return;
+			}
+			setTimeout(tick, 40);
+		}
+
+		tick();
+	})();
 
 	// The background video is decorative, so it's skipped on a connection that
 	// can't spare it and for anyone who has asked for reduced motion. Everyone
@@ -185,7 +244,9 @@
 			setTimeout(tick, deleting ? 35 : 60);
 		}
 
-		setTimeout(tick, 900);
+		onDecryptDone(function () {
+			setTimeout(tick, 400);
+		});
 	})();
 </script>
 </body>
